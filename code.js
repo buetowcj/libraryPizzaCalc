@@ -1,27 +1,23 @@
+$(document).ready(
+    function () {
+        // add event listener (clicks, etc.)
+        $("#LibraryButton").click(calculateFees);
+        $("#PizzaButton").click(calculatePizza);
 function calculateFees()
 {
     // Get amount of books turned in
-    var numBooks = prompt("How many books are being turned in?");
-
-    // convert to number
+    var numBooks = $("#numBooks").val();
     numBooks = parseInt(numBooks);
 
     // Get how many days past due
-    var lateDayBooks = prompt("How many days late are the books?");
-
-    // convert to number
+    var lateDayBooks = $("#lateDayBooks").val();
     lateDayBooks = parseInt(lateDayBooks);
 
     // Get amount of DVDs turned in
-    var numDVDs = prompt("How many DVDs are being turned in?");
-
-    // convert to number
+    var numDVDs = $("#numDVDs").val();
     numDVDs = parseInt(numDVDs);
 
-    // Get how many days past due
-    var lateDayDVDs = prompt("How many days late are the DVDs?");
-
-    // convert to number
+    var lateDayDVDs = $("#lateDayDVDs").val();
     lateDayDVDs = parseInt(lateDayDVDs);
 
     // Declare variable for lateFeeBooks
@@ -39,25 +35,20 @@ function calculateFees()
     // Add bookFeeTotal + dvdFeeTotal to get grandFeeTotal
     var grandFeeTotal = bookFeeTotal + dvdFeeTotal;
 
-    // Output grand total
-    alert(`The late fees total $${grandFeeTotal.toFixed(2)}.`);
+    $("#costLibOutput").text(grandFeeTotal.toFixed(2));
 
+    $(".output").show();
 }
 
 function calculatePizza()
 {
     // Get number of toppings
-    var toppings = prompt("How many toppings would you like?");
-
-    // Convert to number
+    var toppings = $("#toppings").val();
     toppings = parseInt(toppings);
 
     // Get how many people are splitting the bill
-    var billSplit = prompt("How many people are splitting the bill?");
-
-    // Convert to number
-    billSplit = parseInt(billSplit);
-
+    var billSplit = $("#billSplit").val();
+    toppings = parseInt(billSplit);
     // Create variable basePizza = $15
     var basePizza = 15;
 
@@ -71,6 +62,10 @@ function calculatePizza()
     var splitPrice = pizzaWithTopping / billSplit;
 
     // `The price for each person to pay is ${splitPrice}.`
-    alert(`The price for each person to pay is $${splitPrice.toFixed(2)}.`);
 
+    $("#costPizzaOutput").text(splitPrice.toFixed(2));
+
+    $(".output").show();
 }
+    }
+);
