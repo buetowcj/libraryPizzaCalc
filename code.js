@@ -37,7 +37,7 @@ function calculateFees()
 
     $("#costLibOutput").text(grandFeeTotal.toFixed(2));
 
-    $(".output").show();
+    $(".output").first().show();
 }
 
 function calculatePizza()
@@ -65,7 +65,7 @@ function calculatePizza()
 
     $("#costPizzaOutput").text(splitPrice.toFixed(2));
 
-    $(".output").show();
+    $(".output").last().show();
 }
     }
 );
